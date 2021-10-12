@@ -105,7 +105,7 @@ def run_ui():  # main
     lst = []
     while True:
         show_menu()
-        cmd = input("Comanda")
+        cmd = input("Introduceti comanda")
         if cmd == '1':
             lst = read_list()
         elif cmd == '2':
