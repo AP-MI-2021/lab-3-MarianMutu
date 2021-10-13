@@ -2,6 +2,9 @@
 6. Toate numerele sunt divizibile cu k (citit).
 Funcția de calcul: get_longest_div_k(lst: list[int], k: int) -> list[int]
 
+7. Toate numerele sunt neprime.
+Funcția de calcul: get_longest_all_not_prime(lst: list[int]) -> list[int]
+
 13. Toate numerele sunt formate din cifre prime.
 Funcția de calcul: get_longest_prime_digits(lst: list[int]) -> list[int]
 """
@@ -75,12 +78,50 @@ def test_get_longest_prime_digits():
     assert get_longest_prime_digits([]) == []
 
 
+def not_prime_digits(n):
+    """
+    Determina daca un nr  are toate cifrele neprime
+    :param n: int
+    :return: true daca n respecta cerinta, false altfel
+    """
+    prime = [2, 3, 5, 7]
+    while n != 0:
+        for x in prime:
+            if n % 10 == x:
+                return False
+        n = n // 10
+
+    return True
+
+
+def get_longest_all_not_prime(lst):
+    rez3 = []
+    temp3 = []
+    for x in lst:
+        if not_prime_digits(x) == True:
+            temp3.append(x)
+        else:
+            if len(temp3) > len(rez3):
+                rez3 = temp3[:]
+            temp3.clear()
+
+    return rez3
+
+
+def test_longest_all_not_prime():
+    assert get_longest_all_not_prime([]) == []
+    assert get_longest_all_not_prime([1, 18, 49, 87]) == [1, 18, 49]
+    assert get_longest_all_not_prime([12, 46, 98, 90, 0]) == [46, 98, 90, 0]
+
+
+
 def show_menu():
     print('''
     1. Citire date.
     2. Determinare cea mai lungă subsecvență cu proprietatea 6.
     3. Determinare cea mai lungă subsecvență cu proprietatea 13.
-    4. Ieșire.
+    4. Determinare cea mai lungă subsecvență cu proprietatea 7.
+    5. Ieșire.
         ''')
 
 
@@ -114,6 +155,8 @@ def run_ui():  # main
         elif cmd == '3':
             print(get_longest_prime_digits(lst))
         elif cmd == '4':
+            print(get_longest_all_not_prime(lst))
+        elif cmd == '5':
             break
         else:
             print("Comanda invalida")
@@ -122,3 +165,4 @@ def run_ui():  # main
 run_ui()
 test_get_longest_prime_digits()
 test_get_longest_div_k()
+test_longest_all_not_prime()
