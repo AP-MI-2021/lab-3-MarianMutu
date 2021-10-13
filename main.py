@@ -37,6 +37,9 @@ def test_get_longest_div_k():
     assert get_longest_div_k([], 4) == []
 
 
+test_get_longest_div_k()
+
+
 def prime_digits(n):
     """
     Determina daca un nr  are toate cifrele prime
@@ -78,6 +81,9 @@ def test_get_longest_prime_digits():
     assert get_longest_prime_digits([]) == []
 
 
+test_get_longest_prime_digits()
+
+
 def not_prime_digits(n):
     """
     Determina daca un nr  are toate cifrele neprime
@@ -116,7 +122,10 @@ def get_longest_all_not_prime(lst):
 def test_longest_all_not_prime():
     assert get_longest_all_not_prime([]) == []
     assert get_longest_all_not_prime([1, 18, 49, 87]) == [1, 18, 49]
-    assert get_longest_all_not_prime([12, 46, 98, 90, 0]) == [46, 98, 90, 0]
+    assert get_longest_all_not_prime([12, 46, 98, 90, 2]) == [46, 98, 90]
+
+
+test_longest_all_not_prime()
 
 
 def show_menu():
@@ -167,6 +176,3 @@ def run_ui():  # main
 
 
 run_ui()
-test_get_longest_prime_digits()
-test_get_longest_div_k()
-test_longest_all_not_prime()
