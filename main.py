@@ -95,10 +95,15 @@ def not_prime_digits(n):
 
 
 def get_longest_all_not_prime(lst):
-    rez3 = []
-    temp3 = []
+    """
+    determina cea mai mare subsecventa de nr cu toate cifrele neprime
+    :param lst: int
+    :return: lista rezultat
+    """
+    rez3 = []   # rezultatul final
+    temp3 = []   # lista temporala
     for x in lst:
-        if not_prime_digits(x) == True:
+        if not_prime_digits(x):
             temp3.append(x)
         else:
             if len(temp3) > len(rez3):
@@ -112,7 +117,6 @@ def test_longest_all_not_prime():
     assert get_longest_all_not_prime([]) == []
     assert get_longest_all_not_prime([1, 18, 49, 87]) == [1, 18, 49]
     assert get_longest_all_not_prime([12, 46, 98, 90, 0]) == [46, 98, 90, 0]
-
 
 
 def show_menu():
